@@ -15,13 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('docter_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('doctor_id')->constrained();
             $table->tinyInteger('status');
             $table->unsignedInteger('total');
             $table->timestamps();
-            $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('doctor_id')->on('doctors')->references('id')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

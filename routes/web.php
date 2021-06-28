@@ -17,7 +17,8 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::get('orders', \App\Http\Livewire\User\Orders::class )->name('user.orders');
     });
     Route::prefix('admin')->group(function () {
-        Route::get('products', \App\Http\Livewire\Products::class)->name('admin.products');
+        Route::get('doctors', \App\Http\Livewire\Doctors::class)->name('admin.doctors');
+        Route::get('users', \App\Http\Livewire\Users::class)->name('admin.users');
     });
 });
 

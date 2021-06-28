@@ -11,7 +11,7 @@
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous">
-    
+
     </script>
     @livewireStyles
 </head>
@@ -529,17 +529,18 @@
                         </div>
                         <!-- Sidenav Heading (Addons)-->
                         <div class="sidenav-menu-heading">Plugins</div>
-                        <!-- Sidenav Link (Charts)-->
-                        <a class="nav-link {{ request()->routeIs('admin.products') ? 'active' : '' }}"
-                            href="{{ route('admin.products') }}">
+
+                        <a class="nav-link {{ request()->routeIs('admin.doctors') ? 'active' : '' }}"
+                            href="{{ route('admin.doctors') }}">
                             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                            Products
+                            Doctors
                         </a>
-                        <!-- Sidenav Link (Tables)-->
-                        <a class="nav-link" href="tables.html">
-                            <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                            Tables
+                        <a class="nav-link {{ request()->routeIs('admin.users') ? 'active' : '' }}"
+                            href="{{ route('admin.users') }}">
+                            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                            Users
                         </a>
+
                     </div>
                 </div>
             </nav>
@@ -559,6 +560,11 @@
 
     @livewireScripts
     @stack('scripts')
+    <script>
+    window.addEventListener('modal', event => {
+        $('#'+event.detail.modal).modal(event.detail.action);
+    });
+    </script>
 </body>
 
 </html>

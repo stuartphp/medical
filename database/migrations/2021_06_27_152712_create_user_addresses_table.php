@@ -15,14 +15,13 @@ class CreateUserAddressesTable extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->index();
+            $table->foreignId('user_id')->constrained();
             $table->string('physical_address1');
             $table->string('physical_address2')->nullable();
             $table->string('physical_suburb')->nullable();
             $table->string('physical_town');
             $table->string('physical_postal_code');
             $table->timestamps();
-            $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

@@ -15,12 +15,11 @@ class CreateUserDocumentsTable extends Migration
     {
         Schema::create('user_documents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('id_proof')->nullable();
             $table->string('address_proof')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete()->cascadeOnUpdate();
-        });
+         });
     }
 
     /**
